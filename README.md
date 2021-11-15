@@ -1,1 +1,0 @@
-# node-react-arabic-numerals-app
