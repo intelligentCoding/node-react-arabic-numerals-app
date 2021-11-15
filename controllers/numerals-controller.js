@@ -1,4 +1,3 @@
-const HttpError = require('../models/http-error');
 const converToRoman = require('../utils/convertToRoman')
 const convertToArabic = require('../utils/convertToArabic');
 const convertNumeral = async (req, res, next) => {
