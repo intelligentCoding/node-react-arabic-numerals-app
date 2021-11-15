@@ -1,11 +1,11 @@
 const express = require('express');
-
+const HttpError = require('../models/http-error');
 const router = express.Router();
+const numeralController = require('../controllers/numerals-controller');
 
-router.get('/', (req, res, next) => {
-    console.log('convert numerals');
-    res.json({message: 'converted'});
-})
+
+
+router.get('/:value/:type', numeralController.convertNumeral);;
 
 
 module.exports = router;
