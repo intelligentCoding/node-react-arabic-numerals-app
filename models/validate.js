@@ -21,13 +21,17 @@ const validate = (req, res, next) => {
 
 const validateRomanNumeral = (value) => {
     const romanArray = ["I", "IV", "V", "IX", "X","XL","L","XC","C","CD","D","CM","M"];
-    if(!romanArray.includes(value) || Number(value)) {
+
+    //convert string to an array
+    const valueArray = Array.from(value.toUpperCase());
+
+    if((typeof value !== 'string' || !valueArray.some( v => romanArray.includes(v)))) {
         throw new HttpError('Invalid Roman Numeral entered', 400);
     }
 }
 
 const validateArabicNumeral = (value) => {
-    if(value > 4999 || value < 0 || isNaN(value)) {
+    if(value > 3999 || value < 0 || isNaN(value)) {
         throw new HttpError('Invalid Arabic Numeral entered', 400);
     }
 }
